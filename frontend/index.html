@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SUGAR RUSH – Sweet Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="header">
+  <h1>🍬 SUGAR RUSH</h1>
+  <p>Sweet Shop Management System</p>
+  <div id="roleBadge" class="role-badge hidden"></div>
+</header>
+
+<!-- TOP BAR -->
+<div id="cartBar" class="top-cart hidden">
+  <div>
+    🛒 <button class="link-btn" onclick="toggleCart()">View Cart</button>
+    (<span id="cartCount">0</span>)
+  </div>
+  <div>
+    <button class="primary" onclick="confirmCheckout()">Make Payment</button>
+    <button class="secondary" onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<!-- CART -->
+<div id="cartDrawer" class="cart-drawer hidden">
+  <h3>Your Cart</h3>
+  <div id="cartItems"></div>
+  <h4>Total: ₹<span id="cartTotal">0</span></h4>
+</div>
+
+<!-- LOGIN -->
+<div id="loginBox" class="auth-box">
+  <h2>Login</h2>
+  <input id="email" placeholder="Email" />
+  <input id="password" type="password" placeholder="Password" />
+  <button class="primary" onclick="login()">Login</button>
+  <p>
+    New user?
+    <a href="#" onclick="showRegister()">Create account</a>
+  </p>
+</div>
+
+<!-- REGISTER -->
+<div id="registerBox" class="auth-box hidden">
+  <h2>Register</h2>
+  <input id="r_name" placeholder="Name" />
+  <input id="r_email" placeholder="Email" />
+  <input id="r_password" type="password" placeholder="Password" />
+  <input id="r_phone" placeholder="Phone" />
+  <input id="r_address" placeholder="Address" />
+  <input id="r_answer" placeholder="Security Answer" />
+  <button class="primary" onclick="register()">Register</button>
+  <button class="secondary" onclick="showLogin()">Back</button>
+</div>
+
+<div class="container">
+
+  <!-- ADMIN -->
+  <section id="adminPanel" class="admin-panel hidden">
+    <h2>🛡️ Admin Dashboard</h2>
+
+    <div class="stat-card">
+      <h4>Total Revenue</h4>
+      <p>₹<span id="totalRevenue">0</span></p>
+    </div>
+
+    <div class="admin-form">
+      <input id="name" placeholder="Sweet Name" />
+      <input id="price" placeholder="Price" />
+      <input id="quantity" placeholder="Quantity" />
+      <input id="image" placeholder="Image URL (optional)" />
+      <button class="primary" onclick="addSweet()">Add Sweet</button>
+    </div>
+  </section>
+
+  <!-- USER -->
+  <section id="userPanel" class="hidden">
+    <h2>Available Sweets</h2>
+    <div id="sweets" class="sweet-grid"></div>
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
